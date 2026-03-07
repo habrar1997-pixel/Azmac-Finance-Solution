@@ -50,6 +50,44 @@ cursor:pointer;
 width:50px;
 }
 
+section{
+padding:25px;
+text-align:center;
+}
+
+.calc input{
+padding:10px;
+margin:8px;
+width:80%;
+}
+
+button{
+background:#ffb400;
+border:none;
+padding:10px 20px;
+border-radius:6px;
+cursor:pointer;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+background:white;
+}
+
+th,td{
+padding:10px;
+border:1px solid #ddd;
+}
+
+.slider{
+background:white;
+padding:20px;
+border-radius:10px;
+max-width:400px;
+margin:auto;
+}
+
 .popup{
 display:none;
 position:fixed;
@@ -77,12 +115,26 @@ padding:10px;
 margin:8px;
 }
 
-button{
-background:#ffb400;
-border:none;
-padding:12px 20px;
-border-radius:6px;
-cursor:pointer;
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+padding:15px;
+border-radius:50%;
+color:white;
+text-decoration:none;
+}
+
+.call{
+position:fixed;
+bottom:20px;
+left:20px;
+background:#0a2a4a;
+padding:15px;
+border-radius:50%;
+color:white;
+text-decoration:none;
 }
 
 footer{
@@ -100,7 +152,7 @@ padding:20px;
 
 <header>
 
-<div><b>Azmac Finance</b></div>
+<b>Azmac Finance</b>
 
 <div>Call: 9987037192</div>
 
@@ -113,6 +165,8 @@ padding:20px;
 <h3>Personal Loan upto ₹50,00,000</h3>
 
 </div>
+
+<!-- PRODUCTS -->
 
 <div class="grid">
 
@@ -148,12 +202,124 @@ padding:20px;
 
 </div>
 
+<!-- EMI CALCULATOR -->
+
+<section>
+
+<h2>EMI Calculator</h2>
+
+<div class="calc">
+
+<input id="loan" placeholder="Loan Amount">
+
+<input id="rate" placeholder="Interest Rate">
+
+<input id="years" placeholder="Loan Years">
+
+<br>
+
+<button onclick="emiCalc()">Calculate EMI</button>
+
+<p id="emiResult"></p>
+
+</div>
+
+</section>
+
+<!-- LOAN ELIGIBILITY -->
+
+<section>
+
+<h2>Loan Eligibility Checker</h2>
+
+<input id="salary" placeholder="Monthly Salary">
+
+<br>
+
+<button onclick="checkEligibility()">Check Eligibility</button>
+
+<p id="eligible"></p>
+
+</section>
+
+<!-- LOAN COMPARISON -->
+
+<section>
+
+<h2>Loan Comparison</h2>
+
+<table>
+
+<tr>
+<th>Bank</th>
+<th>Interest Rate</th>
+<th>Max Loan</th>
+</tr>
+
+<tr>
+<td>HDFC Bank</td>
+<td>10.5%</td>
+<td>40 Lakh</td>
+</tr>
+
+<tr>
+<td>ICICI Bank</td>
+<td>10.75%</td>
+<td>35 Lakh</td>
+</tr>
+
+<tr>
+<td>Axis Bank</td>
+<td>11%</td>
+<td>30 Lakh</td>
+</tr>
+
+</table>
+
+</section>
+
+<!-- PARTNER BANK LOGOS -->
+
+<section>
+
+<h2>Our Partner Banks</h2>
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/2/28/HDFC_Bank_Logo.svg" width="90">
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/1/12/ICICI_Bank_Logo.svg" width="90">
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Axis_Bank_logo.svg" width="90">
+
+</section>
+
+<!-- REVIEWS -->
+
+<section>
+
+<h2>Customer Reviews</h2>
+
+<div class="slider">
+
+<p id="review">
+
+"Very fast loan approval. Great service!"
+
+</p>
+
+</div>
+
+</section>
+
 <footer>
 
 © 2026 Azmac Finance Solutions  
 Call: 9987037192
 
 </footer>
+
+<a class="whatsapp" href="https://wa.me/919987037192">💬</a>
+<a class="call" href="tel:9987037192">📞</a>
+
 
 <!-- LOAN FORM -->
 
@@ -180,7 +346,6 @@ Call: 9987037192
 
 </div>
 
-
 <!-- MOTOR FORM -->
 
 <div class="popup" id="motorForm">
@@ -200,7 +365,6 @@ Call: 9987037192
 </div>
 
 </div>
-
 
 <script>
 
@@ -255,8 +419,30 @@ window.open(`https://wa.me/919987037192?text=${encodeURIComponent(msg)}`);
 
 }
 
+function emiCalc(){
+
+let P=document.getElementById("loan").value;
+let R=document.getElementById("rate").value/1200;
+let N=document.getElementById("years").value*12;
+
+let EMI=P*R*Math.pow(1+R,N)/(Math.pow(1+R,N)-1);
+
+document.getElementById("emiResult").innerText="Monthly EMI ₹ "+Math.round(EMI);
+
+}
+
+function checkEligibility(){
+
+let salary=document.getElementById("salary").value;
+
+let eligible=salary*20;
+
+document.getElementById("eligible").innerText="You may get loan upto ₹ "+eligible;
+
+}
+
 </script>
 
 </body>
 
-</html>
+  </html>
