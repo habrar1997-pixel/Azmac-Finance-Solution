@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -81,6 +80,21 @@ border-radius:8px;
 box-shadow:0 3px 10px rgba(0,0,0,0.1);
 }
 
+.process{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:20px;
+}
+
+.step{
+background:white;
+padding:20px;
+width:220px;
+border-radius:8px;
+box-shadow:0 3px 10px rgba(0,0,0,0.1);
+}
+
 footer{
 background:#0a2a4a;
 color:white;
@@ -112,6 +126,8 @@ font-size:22px;
 
 <p>Fast & Reliable Loan Services</p>
 
+<p>Call: 9987037192</p>
+
 </header>
 
 <section class="hero">
@@ -131,28 +147,42 @@ font-size:22px;
 <div class="services">
 
 <div class="card">
-
 <h3>Personal Loan</h3>
-
-<p>Instant personal loan with quick approval.</p>
-
+<p>Loan upto ₹25 Lakh with quick approval.</p>
 </div>
 
 <div class="card">
-
 <h3>Business Loan</h3>
-
-<p>Funding solutions for businesses.</p>
-
+<p>Funding solutions for startups & businesses.</p>
 </div>
 
 <div class="card">
-
 <h3>Home Loan</h3>
+<p>Affordable home loans with best rates.</p>
+</div>
 
-<p>Affordable home loans.</p>
+<div class="card">
+<h3>Loan Against Property</h3>
+<p>Get loan using your property.</p>
+</div>
 
 </div>
+
+</section>
+
+<section class="section">
+
+<h2>Loan Process</h2>
+
+<div class="process">
+
+<div class="step">Apply Online</div>
+
+<div class="step">Document Verification</div>
+
+<div class="step">Loan Approval</div>
+
+<div class="step">Amount Disbursed</div>
 
 </div>
 
@@ -194,6 +224,14 @@ font-size:22px;
 
 <section class="section">
 
+<h2>Documents Required</h2>
+
+<p>Aadhaar Card • PAN Card • Salary Slip • Bank Statement</p>
+
+</section>
+
+<section class="section">
+
 <h2>Our Partner Banks & NBFC</h2>
 
 <div class="bank-grid">
@@ -230,6 +268,8 @@ font-size:22px;
 
 <option>Home Loan</option>
 
+<option>Loan Against Property</option>
+
 </select>
 
 <br><br>
@@ -242,9 +282,11 @@ font-size:22px;
 
 <p>© 2026 Azmac Finance Solutions</p>
 
+<p>Mobile: 9987037192</p>
+
 </footer>
 
-<a class="whatsapp" href="https://wa.me/9987037192">💬</a>
+<a class="whatsapp" href="https://wa.me/919987037192">💬</a>
 
 <script>
 
@@ -290,7 +332,7 @@ let loan=document.getElementById("loanType").value;
 
 let message=`New Loan Enquiry %0AName: ${name}%0ACity: ${city}%0ALoan Type: ${loan}`;
 
-window.open(`https://wa.me/919999999999?text=${message}`);
+window.open(`https://wa.me/919987037192?text=${message}`);
 
 }
 
