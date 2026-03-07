@@ -15,10 +15,23 @@ background:#f4f6fb;
 }
 
 header{
-background:#0a2a4a;
+background:#0b2c52;
 color:white;
 padding:20px;
 text-align:center;
+}
+
+nav{
+background:#0b2c52;
+padding:10px;
+text-align:center;
+}
+
+nav a{
+color:white;
+margin:0 15px;
+text-decoration:none;
+font-weight:bold;
 }
 
 .hero{
@@ -36,7 +49,6 @@ border:none;
 border-radius:6px;
 font-size:16px;
 cursor:pointer;
-margin-top:10px;
 }
 
 .section{
@@ -44,7 +56,7 @@ padding:60px 20px;
 text-align:center;
 }
 
-.services{
+.cards{
 display:flex;
 flex-wrap:wrap;
 justify-content:center;
@@ -53,8 +65,8 @@ gap:20px;
 
 .card{
 background:white;
-width:260px;
 padding:25px;
+width:260px;
 border-radius:10px;
 box-shadow:0 5px 15px rgba(0,0,0,0.1);
 }
@@ -96,7 +108,7 @@ box-shadow:0 3px 10px rgba(0,0,0,0.1);
 }
 
 footer{
-background:#0a2a4a;
+background:#0b2c52;
 color:white;
 padding:20px;
 text-align:center;
@@ -107,6 +119,18 @@ position:fixed;
 bottom:20px;
 right:20px;
 background:#25D366;
+padding:16px;
+border-radius:50%;
+color:white;
+text-decoration:none;
+font-size:22px;
+}
+
+.call{
+position:fixed;
+bottom:20px;
+left:20px;
+background:#0b2c52;
 padding:16px;
 border-radius:50%;
 color:white;
@@ -130,6 +154,16 @@ font-size:22px;
 
 </header>
 
+<nav>
+
+<a href="#">Home</a>
+<a href="#loans">Loans</a>
+<a href="#emi">EMI Calculator</a>
+<a href="#apply">Apply Loan</a>
+<a href="#contact">Contact</a>
+
+</nav>
+
 <section class="hero">
 
 <h1>Get Instant Loans Easily</h1>
@@ -140,30 +174,30 @@ font-size:22px;
 
 </section>
 
-<section class="section">
+<section class="section" id="loans">
 
 <h2>Our Loan Services</h2>
 
-<div class="services">
+<div class="cards">
 
 <div class="card">
 <h3>Personal Loan</h3>
-<p>Loan upto ₹25 Lakh with quick approval.</p>
+<p>Loan upto ₹25 Lakh</p>
 </div>
 
 <div class="card">
 <h3>Business Loan</h3>
-<p>Funding solutions for startups & businesses.</p>
+<p>Funding for businesses</p>
 </div>
 
 <div class="card">
 <h3>Home Loan</h3>
-<p>Affordable home loans with best rates.</p>
+<p>Affordable home loans</p>
 </div>
 
 <div class="card">
 <h3>Loan Against Property</h3>
-<p>Get loan using your property.</p>
+<p>Use property for loan</p>
 </div>
 
 </div>
@@ -176,19 +210,16 @@ font-size:22px;
 
 <div class="process">
 
-<div class="step">Apply Online</div>
-
-<div class="step">Document Verification</div>
-
-<div class="step">Loan Approval</div>
-
-<div class="step">Amount Disbursed</div>
+<div class="step">1 Apply Online</div>
+<div class="step">2 Document Verification</div>
+<div class="step">3 Loan Approval</div>
+<div class="step">4 Amount Disbursed</div>
 
 </div>
 
 </section>
 
-<section class="section calc">
+<section class="section calc" id="emi">
 
 <h2>EMI Calculator</h2>
 
@@ -202,7 +233,7 @@ font-size:22px;
 
 <button class="btn" onclick="calculateEMI()">Calculate EMI</button>
 
-<h3 id="emi"></h3>
+<h3 id="emiResult"></h3>
 
 </section>
 
@@ -237,15 +268,10 @@ font-size:22px;
 <div class="bank-grid">
 
 <div class="bank">HDFC Bank</div>
-
 <div class="bank">ICICI Bank</div>
-
 <div class="bank">Axis Bank</div>
-
 <div class="bank">Bajaj Finserv</div>
-
 <div class="bank">Tata Capital</div>
-
 <div class="bank">Aditya Birla Finance</div>
 
 </div>
@@ -263,11 +289,8 @@ font-size:22px;
 <select id="loanType">
 
 <option>Personal Loan</option>
-
 <option>Business Loan</option>
-
 <option>Home Loan</option>
-
 <option>Loan Against Property</option>
 
 </select>
@@ -278,7 +301,7 @@ font-size:22px;
 
 </section>
 
-<footer>
+<footer id="contact">
 
 <p>© 2026 Azmac Finance Solutions</p>
 
@@ -287,6 +310,8 @@ font-size:22px;
 </footer>
 
 <a class="whatsapp" href="https://wa.me/919987037192">💬</a>
+
+<a class="call" href="tel:9987037192">📞</a>
 
 <script>
 
@@ -300,7 +325,7 @@ let N=document.getElementById("years").value*12;
 
 let emi=P*R*Math.pow(1+R,N)/(Math.pow(1+R,N)-1);
 
-document.getElementById("emi").innerHTML="Monthly EMI: ₹"+Math.round(emi);
+document.getElementById("emiResult").innerHTML="Monthly EMI: ₹"+Math.round(emi);
 
 }
 
@@ -308,9 +333,7 @@ function checkEligibility(){
 
 let income=document.getElementById("income").value;
 
-let emi=income*0.4;
-
-let loan=emi*60;
+let loan=income*60;
 
 document.getElementById("eligible").innerHTML="You may get loan upto ₹"+Math.round(loan);
 
@@ -340,4 +363,4 @@ window.open(`https://wa.me/919987037192?text=${message}`);
 
 </body>
 
-</html>
+  </html>
