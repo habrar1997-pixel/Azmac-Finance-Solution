@@ -3,6 +3,7 @@
 <head>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <title>Azmac Finance Solutions</title>
 
 <style>
@@ -23,57 +24,32 @@ box-shadow:0 2px 8px rgba(0,0,0,0.1);
 }
 
 .logo{
-font-size:20px;
 font-weight:bold;
 color:#1a3c8b;
-}
-
-.expert{
-border:2px solid #1a3c8b;
-padding:8px 14px;
-border-radius:8px;
-text-decoration:none;
-color:#1a3c8b;
-font-weight:bold;
 }
 
 .banner{
 background:#1cbf6a;
 color:white;
+padding:20px;
 margin:15px;
-border-radius:15px;
-padding:20px;
-}
-
-.banner h2{
-margin:5px 0;
-}
-
-.applybtn{
-background:white;
-border:none;
-padding:10px 20px;
-border-radius:8px;
-margin-top:10px;
-cursor:pointer;
-}
-
-.section{
-padding:20px;
+border-radius:12px;
 }
 
 .grid{
 display:grid;
 grid-template-columns:repeat(3,1fr);
 gap:15px;
+padding:20px;
 }
 
 .card{
 background:white;
-border-radius:12px;
 padding:15px;
+border-radius:12px;
 text-align:center;
 box-shadow:0 2px 10px rgba(0,0,0,0.1);
+cursor:pointer;
 }
 
 .card img{
@@ -86,7 +62,7 @@ background:#0a2a4a;
 color:white;
 text-align:center;
 padding:20px;
-margin-top:30px;
+margin-top:20px;
 }
 
 .whatsapp{
@@ -96,9 +72,9 @@ right:20px;
 background:#25D366;
 padding:15px;
 border-radius:50%;
-font-size:22px;
 color:white;
 text-decoration:none;
+font-size:22px;
 }
 
 .call{
@@ -108,9 +84,44 @@ left:20px;
 background:#0a2a4a;
 padding:15px;
 border-radius:50%;
-font-size:22px;
 color:white;
 text-decoration:none;
+font-size:22px;
+}
+
+.popup{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
+justify-content:center;
+align-items:center;
+}
+
+.formbox{
+background:white;
+padding:25px;
+border-radius:10px;
+width:90%;
+max-width:350px;
+text-align:center;
+}
+
+input,select{
+width:90%;
+padding:10px;
+margin:8px;
+}
+
+button{
+background:#ffb400;
+border:none;
+padding:12px 22px;
+border-radius:6px;
+cursor:pointer;
 }
 
 </style>
@@ -123,61 +134,53 @@ text-decoration:none;
 
 <div class="logo">Azmac Finance</div>
 
-<a class="expert" href="tel:9987037192">Talk to Expert</a>
+<div>Call: 9987037192</div>
 
 </header>
 
 <div class="banner">
 
-<h3>Need Urgent Funds?</h3>
+<h2>Need Urgent Funds?</h2>
 
-<h2>Personal Loan upto ₹50,00,000</h2>
+<h3>Personal Loan upto ₹50,00,000</h3>
 
 <p>Fast approval • Digital process</p>
 
-<button class="applybtn">Apply Now</button>
-
 </div>
-
-<section class="section">
-
-<h3>Loans & Insurance</h3>
 
 <div class="grid">
 
-<div class="card">
+<div class="card" onclick="openForm('Personal Loan')">
 <img src="https://cdn-icons-png.flaticon.com/512/2331/2331947.png">
 <p>Personal Loan</p>
 </div>
 
-<div class="card">
+<div class="card" onclick="openForm('Business Loan')">
 <img src="https://cdn-icons-png.flaticon.com/512/1995/1995525.png">
 <p>Business Loan</p>
 </div>
 
-<div class="card">
+<div class="card" onclick="openForm('Home Loan')">
 <img src="https://cdn-icons-png.flaticon.com/512/609/609803.png">
 <p>Home Loan</p>
 </div>
 
-<div class="card">
+<div class="card" onclick="openForm('Health Insurance')">
 <img src="https://cdn-icons-png.flaticon.com/512/2966/2966485.png">
 <p>Health Insurance</p>
 </div>
 
-<div class="card">
+<div class="card" onclick="openForm('Term Insurance')">
 <img src="https://cdn-icons-png.flaticon.com/512/2721/2721274.png">
 <p>Term Insurance</p>
 </div>
 
-<div class="card">
+<div class="card" onclick="openForm('Motor Insurance')">
 <img src="https://cdn-icons-png.flaticon.com/512/744/744465.png">
 <p>Motor Insurance</p>
 </div>
 
 </div>
-
-</section>
 
 <footer>
 
@@ -190,6 +193,81 @@ text-decoration:none;
 <a class="whatsapp" href="https://wa.me/919987037192">💬</a>
 
 <a class="call" href="tel:9987037192">📞</a>
+
+
+<div class="popup" id="popup">
+
+<div class="formbox">
+
+<h3 id="productTitle"></h3>
+
+<div id="step1">
+
+<input id="name" placeholder="Full Name">
+
+<input id="mobile" placeholder="Mobile Number">
+
+<button onclick="nextStep()">Next</button>
+
+</div>
+
+<div id="step2" style="display:none">
+
+<h4>Employment Type</h4>
+
+<select id="job">
+
+<option>Salaried</option>
+
+<option>Self Employed</option>
+
+</select>
+
+<input id="income" placeholder="Monthly Income">
+
+<button onclick="finish()">Submit</button>
+
+</div>
+
+<div id="success" style="display:none">
+
+<h3>Thank You</h3>
+
+<p>Our agent will connect you shortly.</p>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function openForm(product){
+
+document.getElementById("popup").style.display="flex";
+
+document.getElementById("productTitle").innerText=product;
+
+}
+
+function nextStep(){
+
+document.getElementById("step1").style.display="none";
+
+document.getElementById("step2").style.display="block";
+
+}
+
+function finish(){
+
+document.getElementById("step2").style.display="none";
+
+document.getElementById("success").style.display="block";
+
+}
+
+</script>
 
 </body>
 
