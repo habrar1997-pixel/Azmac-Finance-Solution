@@ -19,13 +19,7 @@ background:white;
 padding:15px;
 display:flex;
 justify-content:space-between;
-align-items:center;
-box-shadow:0 2px 8px rgba(0,0,0,0.1);
-}
-
-.logo{
-font-weight:bold;
-color:#1a3c8b;
+box-shadow:0 2px 10px rgba(0,0,0,0.1);
 }
 
 .banner{
@@ -33,7 +27,7 @@ background:#1cbf6a;
 color:white;
 padding:20px;
 margin:15px;
-border-radius:12px;
+border-radius:10px;
 }
 
 .grid{
@@ -46,7 +40,7 @@ padding:20px;
 .card{
 background:white;
 padding:15px;
-border-radius:12px;
+border-radius:10px;
 text-align:center;
 box-shadow:0 2px 10px rgba(0,0,0,0.1);
 cursor:pointer;
@@ -54,39 +48,6 @@ cursor:pointer;
 
 .card img{
 width:50px;
-margin-bottom:8px;
-}
-
-footer{
-background:#0a2a4a;
-color:white;
-text-align:center;
-padding:20px;
-margin-top:20px;
-}
-
-.whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25D366;
-padding:15px;
-border-radius:50%;
-color:white;
-text-decoration:none;
-font-size:22px;
-}
-
-.call{
-position:fixed;
-bottom:20px;
-left:20px;
-background:#0a2a4a;
-padding:15px;
-border-radius:50%;
-color:white;
-text-decoration:none;
-font-size:22px;
 }
 
 .popup{
@@ -119,9 +80,16 @@ margin:8px;
 button{
 background:#ffb400;
 border:none;
-padding:12px 22px;
+padding:12px 20px;
 border-radius:6px;
 cursor:pointer;
+}
+
+footer{
+background:#0a2a4a;
+color:white;
+text-align:center;
+padding:20px;
 }
 
 </style>
@@ -132,7 +100,7 @@ cursor:pointer;
 
 <header>
 
-<div class="logo">Azmac Finance</div>
+<div><b>Azmac Finance</b></div>
 
 <div>Call: 9987037192</div>
 
@@ -144,38 +112,36 @@ cursor:pointer;
 
 <h3>Personal Loan upto ₹50,00,000</h3>
 
-<p>Fast approval • Digital process</p>
-
 </div>
 
 <div class="grid">
 
-<div class="card" onclick="openForm('Personal Loan')">
+<div class="card" onclick="openLoan('Personal Loan')">
 <img src="https://cdn-icons-png.flaticon.com/512/2331/2331947.png">
 <p>Personal Loan</p>
 </div>
 
-<div class="card" onclick="openForm('Business Loan')">
+<div class="card" onclick="openLoan('Business Loan')">
 <img src="https://cdn-icons-png.flaticon.com/512/1995/1995525.png">
 <p>Business Loan</p>
 </div>
 
-<div class="card" onclick="openForm('Home Loan')">
+<div class="card" onclick="openLoan('Home Loan')">
 <img src="https://cdn-icons-png.flaticon.com/512/609/609803.png">
 <p>Home Loan</p>
 </div>
 
-<div class="card" onclick="openForm('Health Insurance')">
+<div class="card" onclick="openLoan('Health Insurance')">
 <img src="https://cdn-icons-png.flaticon.com/512/2966/2966485.png">
 <p>Health Insurance</p>
 </div>
 
-<div class="card" onclick="openForm('Term Insurance')">
+<div class="card" onclick="openLoan('Term Insurance')">
 <img src="https://cdn-icons-png.flaticon.com/512/2721/2721274.png">
 <p>Term Insurance</p>
 </div>
 
-<div class="card" onclick="openForm('Motor Insurance')">
+<div class="card" onclick="openMotor()">
 <img src="https://cdn-icons-png.flaticon.com/512/744/744465.png">
 <p>Motor Insurance</p>
 </div>
@@ -184,86 +150,108 @@ cursor:pointer;
 
 <footer>
 
-<p>© 2026 Azmac Finance Solutions</p>
-
-<p>Call: 9987037192</p>
+© 2026 Azmac Finance Solutions  
+Call: 9987037192
 
 </footer>
 
-<a class="whatsapp" href="https://wa.me/919987037192">💬</a>
+<!-- LOAN FORM -->
 
-<a class="call" href="tel:9987037192">📞</a>
-
-
-<div class="popup" id="popup">
+<div class="popup" id="loanForm">
 
 <div class="formbox">
 
-<h3 id="productTitle"></h3>
-
-<div id="step1">
+<h3 id="loanTitle"></h3>
 
 <input id="name" placeholder="Full Name">
 
 <input id="mobile" placeholder="Mobile Number">
 
-<button onclick="nextStep()">Next</button>
-
-</div>
-
-<div id="step2" style="display:none">
-
-<h4>Employment Type</h4>
-
 <select id="job">
-
 <option>Salaried</option>
-
 <option>Self Employed</option>
-
 </select>
 
 <input id="income" placeholder="Monthly Income">
 
-<button onclick="finish()">Submit</button>
-
-</div>
-
-<div id="success" style="display:none">
-
-<h3>Thank You</h3>
-
-<p>Our agent will connect you shortly.</p>
+<button onclick="submitLoan()">Submit</button>
 
 </div>
 
 </div>
 
+
+<!-- MOTOR FORM -->
+
+<div class="popup" id="motorForm">
+
+<div class="formbox">
+
+<h3>Motor Insurance</h3>
+
+<input id="mname" placeholder="Customer Name">
+
+<input id="mmobile" placeholder="Mobile Number">
+
+<input id="vehicle" placeholder="Vehicle Number">
+
+<button onclick="submitMotor()">Submit</button>
+
 </div>
+
+</div>
+
 
 <script>
 
-function openForm(product){
+let product="";
 
-document.getElementById("popup").style.display="flex";
+function openLoan(type){
 
-document.getElementById("productTitle").innerText=product;
+product=type;
 
-}
+document.getElementById("loanTitle").innerText=type;
 
-function nextStep(){
-
-document.getElementById("step1").style.display="none";
-
-document.getElementById("step2").style.display="block";
+document.getElementById("loanForm").style.display="flex";
 
 }
 
-function finish(){
+function openMotor(){
 
-document.getElementById("step2").style.display="none";
+document.getElementById("motorForm").style.display="flex";
 
-document.getElementById("success").style.display="block";
+}
+
+function submitLoan(){
+
+let name=document.getElementById("name").value;
+let mobile=document.getElementById("mobile").value;
+let job=document.getElementById("job").value;
+let income=document.getElementById("income").value;
+
+let msg=`New Lead
+Product: ${product}
+Name: ${name}
+Mobile: ${mobile}
+Job: ${job}
+Income: ${income}`;
+
+window.open(`https://wa.me/919987037192?text=${encodeURIComponent(msg)}`);
+
+}
+
+function submitMotor(){
+
+let name=document.getElementById("mname").value;
+let mobile=document.getElementById("mmobile").value;
+let vehicle=document.getElementById("vehicle").value;
+
+let msg=`Motor Insurance Lead
+Name: ${name}
+Mobile: ${mobile}
+Vehicle: ${vehicle}`;
+
+window.open(`https://wa.me/919987037192?text=${encodeURIComponent(msg)}`);
 
 }
 
