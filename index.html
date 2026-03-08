@@ -11,7 +11,7 @@
 body{
 font-family:Arial;
 margin:0;
-background:#f3f6fb;
+background:#eef3ff;
 }
 
 header{
@@ -23,32 +23,21 @@ align-items:center;
 box-shadow:0 2px 10px rgba(0,0,0,0.1);
 }
 
-.logo{
-font-weight:bold;
-font-size:18px;
-color:#0a2a4a;
-}
-
-.tag{
-font-size:12px;
-color:gray;
-}
-
-.callbtn{
-background:#1cbf6a;
-color:white;
-padding:8px 15px;
-border-radius:6px;
-text-decoration:none;
-font-weight:bold;
-}
-
 .banner{
 background:#1cbf6a;
 color:white;
 padding:20px;
 margin:15px;
 border-radius:10px;
+}
+
+.applybtn{
+background:#ffb400;
+border:none;
+padding:10px 20px;
+border-radius:6px;
+margin-top:10px;
+cursor:pointer;
 }
 
 .grid{
@@ -71,44 +60,33 @@ cursor:pointer;
 width:50px;
 }
 
-section{
-padding:25px;
+.section{
 text-align:center;
+padding:40px 20px;
 }
 
-input,select{
-width:90%;
-padding:10px;
-margin:8px;
-border:1px solid #ccc;
-border-radius:6px;
-}
-
-button{
-background:#ffb400;
-border:none;
+.calcbtn{
+background:#1cbf6a;
+color:white;
 padding:10px 20px;
+border:none;
 border-radius:6px;
-cursor:pointer;
+margin-top:10px;
 }
 
-table{
-width:100%;
-border-collapse:collapse;
-background:white;
-}
-
-th,td{
-padding:10px;
-border:1px solid #ddd;
-}
-
-.slider{
-background:white;
+.bankgrid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:10px;
 padding:20px;
-border-radius:10px;
-max-width:400px;
-margin:auto;
+}
+
+.bank{
+background:white;
+padding:10px;
+border-radius:8px;
+color:green;
+font-weight:bold;
 box-shadow:0 2px 10px rgba(0,0,0,0.1);
 }
 
@@ -125,12 +103,24 @@ align-items:center;
 }
 
 .formbox{
-background:#f9fbff;
+background:white;
 padding:25px;
 border-radius:10px;
 width:90%;
 max-width:350px;
 text-align:center;
+}
+
+input,select{
+width:90%;
+padding:10px;
+margin:8px;
+border:1px solid #ccc;
+border-radius:6px;
+}
+
+button{
+cursor:pointer;
 }
 
 .close{
@@ -140,36 +130,15 @@ border:none;
 border-radius:50%;
 width:28px;
 height:28px;
-cursor:pointer;
 }
 
-.whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25D366;
-padding:15px;
-border-radius:50%;
-color:white;
-text-decoration:none;
-}
-
-.call{
-position:fixed;
-bottom:20px;
-left:20px;
-background:#0a2a4a;
-padding:15px;
-border-radius:50%;
-color:white;
-text-decoration:none;
-}
-
-footer{
-background:#0a2a4a;
-color:white;
-text-align:center;
+.calcbox{
+display:none;
+background:white;
 padding:20px;
+margin:20px;
+border-radius:10px;
+box-shadow:0 2px 10px rgba(0,0,0,0.1);
 }
 
 </style>
@@ -182,13 +151,17 @@ padding:20px;
 
 <div>
 
-<div class="logo">Azmac Finance Solutions</div>
+<b>Azmac Finance Solutions</b><br>
 
-<div class="tag">Fast • Trusted • Easy Loan Services</div>
+<small>Fast • Trusted • Easy Loan Services</small>
 
 </div>
 
-<a class="callbtn" href="tel:9987037192">📞 Call Now</a>
+<a href="tel:9987037192" style="background:#1cbf6a;color:white;padding:8px 15px;border-radius:6px;text-decoration:none">
+
+📞 Call Now
+
+</a>
 
 </header>
 
@@ -199,6 +172,12 @@ padding:20px;
 <h3>Personal Loan upto ₹50,00,000</h3>
 
 <p>Fast approval • Low interest • 100% digital process</p>
+
+<button class="applybtn" onclick="openLoan('Personal Loan')">
+
+Apply Now
+
+</button>
 
 </div>
 
@@ -238,11 +217,19 @@ padding:20px;
 
 </div>
 
-<!-- EMI CALCULATOR -->
+<!-- EMI BUTTON -->
 
-<section>
+<div class="section">
 
-<h2>EMI Calculator</h2>
+<h2>💰 EMI Calculator</h2>
+
+<button class="calcbtn" onclick="showEmi()">Calculate EMI</button>
+
+</div>
+
+<div id="emiBox" class="calcbox">
+
+<h3>EMI Calculator</h3>
 
 <input id="loan" placeholder="Loan Amount">
 
@@ -252,106 +239,56 @@ padding:20px;
 
 <br>
 
-<button onclick="emiCalc()">Calculate EMI</button>
+<button onclick="emiCalc()">Calculate</button>
 
 <p id="emiResult"></p>
 
-</section>
+</div>
 
-<!-- LOAN ELIGIBILITY -->
+<!-- ELIGIBILITY -->
 
-<section>
+<div class="section">
 
-<h2>Loan Eligibility Checker</h2>
+<h2>📊 Loan Eligibility</h2>
+
+<button class="calcbtn" onclick="showEligibility()">Check Eligibility</button>
+
+</div>
+
+<div id="eligibilityBox" class="calcbox">
+
+<h3>Eligibility Checker</h3>
 
 <input id="salary" placeholder="Monthly Salary">
 
 <br>
 
-<button onclick="checkEligibility()">Check Eligibility</button>
+<button onclick="checkEligibility()">Check</button>
 
 <p id="eligible"></p>
 
-</section>
+</div>
 
-<!-- LOAN COMPARISON -->
+<!-- BANKS -->
 
-<section>
+<div class="section">
 
-<h2>Loan Comparison</h2>
-
-<table>
-
-<tr>
-<th>Bank</th>
-<th>Interest Rate</th>
-<th>Max Loan</th>
-</tr>
-
-<tr>
-<td>HDFC Bank</td>
-<td>10.5%</td>
-<td>40 Lakh</td>
-</tr>
-
-<tr>
-<td>ICICI Bank</td>
-<td>10.75%</td>
-<td>35 Lakh</td>
-</tr>
-
-<tr>
-<td>Axis Bank</td>
-<td>11%</td>
-<td>30 Lakh</td>
-</tr>
-
-</table>
-
-</section>
-
-<!-- BANK LOGOS -->
-
-<section>
-
-<h2>Our Partner Banks</h2>
-
-<img src="https://upload.wikimedia.org/wikipedia/commons/2/28/HDFC_Bank_Logo.svg" width="80">
-
-<img src="https://upload.wikimedia.org/wikipedia/commons/1/12/ICICI_Bank_Logo.svg" width="80">
-
-<img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Axis_Bank_logo.svg" width="80">
-
-</section>
-
-<!-- REVIEWS -->
-
-<section>
-
-<h2>Customer Reviews</h2>
-
-<div class="slider">
-
-<p id="review">
-
-"Very fast loan approval. Great service!"
-
-</p>
+<h2>Our Partner Banks & NBFC</h2>
 
 </div>
 
-</section>
+<div class="bankgrid">
 
-<footer>
+<div class="bank">HDFC Bank</div>
+<div class="bank">ICICI Bank</div>
+<div class="bank">Axis Bank</div>
+<div class="bank">Bajaj Finserv</div>
+<div class="bank">Tata Capital</div>
+<div class="bank">Aditya Birla Finance</div>
+<div class="bank">Kotak Mahindra Bank</div>
+<div class="bank">IDFC First Bank</div>
 
-© 2026 Azmac Finance Solutions  
-Call: 9987037192
-
-</footer>
-
-<a class="whatsapp" href="https://wa.me/919987037192">💬</a>
-
-<a class="call" href="tel:9987037192">📞</a>
+</div>
 
 <!-- LOAN FORM -->
 
@@ -387,32 +324,6 @@ Call: 9987037192
 
 </div>
 
-<!-- MOTOR FORM -->
-
-<div class="popup" id="motorForm">
-
-<div class="formbox">
-
-<div style="text-align:right">
-
-<button class="close" onclick="closeForm()">✕</button>
-
-</div>
-
-<h3>Motor Insurance</h3>
-
-<input id="mname" placeholder="Customer Name">
-
-<input id="mmobile" placeholder="Mobile Number">
-
-<input id="vehicle" placeholder="Vehicle Number">
-
-<button onclick="submitMotor()">Submit</button>
-
-</div>
-
-</div>
-
 <script>
 
 let product="";
@@ -429,15 +340,13 @@ document.getElementById("loanForm").style.display="flex";
 
 function openMotor(){
 
-document.getElementById("motorForm").style.display="flex";
+openLoan("Motor Insurance");
 
 }
 
 function closeForm(){
 
 document.getElementById("loanForm").style.display="none";
-
-document.getElementById("motorForm").style.display="none";
 
 }
 
@@ -449,11 +358,11 @@ let job=document.getElementById("job").value;
 let income=document.getElementById("income").value;
 
 let msg=`New Lead
-Product: ${product}
-Name: ${name}
-Mobile: ${mobile}
-Job: ${job}
-Income: ${income}`;
+Product:${product}
+Name:${name}
+Mobile:${mobile}
+Job:${job}
+Income:${income}`;
 
 window.open(`https://wa.me/919987037192?text=${encodeURIComponent(msg)}`);
 
@@ -461,20 +370,15 @@ closeForm();
 
 }
 
-function submitMotor(){
+function showEmi(){
 
-let name=document.getElementById("mname").value;
-let mobile=document.getElementById("mmobile").value;
-let vehicle=document.getElementById("vehicle").value;
+document.getElementById("emiBox").style.display="block";
 
-let msg=`Motor Insurance Lead
-Name: ${name}
-Mobile: ${mobile}
-Vehicle: ${vehicle}`;
+}
 
-window.open(`https://wa.me/919987037192?text=${encodeURIComponent(msg)}`);
+function showEligibility(){
 
-closeForm();
+document.getElementById("eligibilityBox").style.display="block";
 
 }
 
