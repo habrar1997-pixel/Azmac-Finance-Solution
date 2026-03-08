@@ -11,7 +11,7 @@
 body{
 font-family:Arial;
 margin:0;
-background:#f4f6fb;
+background:#f3f6fb;
 }
 
 header{
@@ -19,7 +19,28 @@ background:white;
 padding:15px;
 display:flex;
 justify-content:space-between;
+align-items:center;
 box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+
+.logo{
+font-weight:bold;
+font-size:18px;
+color:#0a2a4a;
+}
+
+.tag{
+font-size:12px;
+color:gray;
+}
+
+.callbtn{
+background:#1cbf6a;
+color:white;
+padding:8px 15px;
+border-radius:6px;
+text-decoration:none;
+font-weight:bold;
 }
 
 .banner{
@@ -55,10 +76,12 @@ padding:25px;
 text-align:center;
 }
 
-.calc input{
+input,select{
+width:90%;
 padding:10px;
 margin:8px;
-width:80%;
+border:1px solid #ccc;
+border-radius:6px;
 }
 
 button{
@@ -86,6 +109,7 @@ padding:20px;
 border-radius:10px;
 max-width:400px;
 margin:auto;
+box-shadow:0 2px 10px rgba(0,0,0,0.1);
 }
 
 .popup{
@@ -101,7 +125,7 @@ align-items:center;
 }
 
 .formbox{
-background:white;
+background:#f9fbff;
 padding:25px;
 border-radius:10px;
 width:90%;
@@ -109,10 +133,14 @@ max-width:350px;
 text-align:center;
 }
 
-input,select{
-width:90%;
-padding:10px;
-margin:8px;
+.close{
+background:red;
+color:white;
+border:none;
+border-radius:50%;
+width:28px;
+height:28px;
+cursor:pointer;
 }
 
 .whatsapp{
@@ -152,9 +180,15 @@ padding:20px;
 
 <header>
 
-<b>Azmac Finance</b>
+<div>
 
-<div>Call: 9987037192</div>
+<div class="logo">Azmac Finance Solutions</div>
+
+<div class="tag">Fast • Trusted • Easy Loan Services</div>
+
+</div>
+
+<a class="callbtn" href="tel:9987037192">📞 Call Now</a>
 
 </header>
 
@@ -163,6 +197,8 @@ padding:20px;
 <h2>Need Urgent Funds?</h2>
 
 <h3>Personal Loan upto ₹50,00,000</h3>
+
+<p>Fast approval • Low interest • 100% digital process</p>
 
 </div>
 
@@ -208,8 +244,6 @@ padding:20px;
 
 <h2>EMI Calculator</h2>
 
-<div class="calc">
-
 <input id="loan" placeholder="Loan Amount">
 
 <input id="rate" placeholder="Interest Rate">
@@ -221,8 +255,6 @@ padding:20px;
 <button onclick="emiCalc()">Calculate EMI</button>
 
 <p id="emiResult"></p>
-
-</div>
 
 </section>
 
@@ -278,17 +310,17 @@ padding:20px;
 
 </section>
 
-<!-- PARTNER BANK LOGOS -->
+<!-- BANK LOGOS -->
 
 <section>
 
 <h2>Our Partner Banks</h2>
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/2/28/HDFC_Bank_Logo.svg" width="90">
+<img src="https://upload.wikimedia.org/wikipedia/commons/2/28/HDFC_Bank_Logo.svg" width="80">
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/1/12/ICICI_Bank_Logo.svg" width="90">
+<img src="https://upload.wikimedia.org/wikipedia/commons/1/12/ICICI_Bank_Logo.svg" width="80">
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Axis_Bank_logo.svg" width="90">
+<img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Axis_Bank_logo.svg" width="80">
 
 </section>
 
@@ -318,14 +350,20 @@ Call: 9987037192
 </footer>
 
 <a class="whatsapp" href="https://wa.me/919987037192">💬</a>
-<a class="call" href="tel:9987037192">📞</a>
 
+<a class="call" href="tel:9987037192">📞</a>
 
 <!-- LOAN FORM -->
 
 <div class="popup" id="loanForm">
 
 <div class="formbox">
+
+<div style="text-align:right">
+
+<button class="close" onclick="closeForm()">✕</button>
+
+</div>
 
 <h3 id="loanTitle"></h3>
 
@@ -334,8 +372,11 @@ Call: 9987037192
 <input id="mobile" placeholder="Mobile Number">
 
 <select id="job">
+
 <option>Salaried</option>
+
 <option>Self Employed</option>
+
 </select>
 
 <input id="income" placeholder="Monthly Income">
@@ -351,6 +392,12 @@ Call: 9987037192
 <div class="popup" id="motorForm">
 
 <div class="formbox">
+
+<div style="text-align:right">
+
+<button class="close" onclick="closeForm()">✕</button>
+
+</div>
 
 <h3>Motor Insurance</h3>
 
@@ -386,6 +433,14 @@ document.getElementById("motorForm").style.display="flex";
 
 }
 
+function closeForm(){
+
+document.getElementById("loanForm").style.display="none";
+
+document.getElementById("motorForm").style.display="none";
+
+}
+
 function submitLoan(){
 
 let name=document.getElementById("name").value;
@@ -402,6 +457,8 @@ Income: ${income}`;
 
 window.open(`https://wa.me/919987037192?text=${encodeURIComponent(msg)}`);
 
+closeForm();
+
 }
 
 function submitMotor(){
@@ -416,6 +473,8 @@ Mobile: ${mobile}
 Vehicle: ${vehicle}`;
 
 window.open(`https://wa.me/919987037192?text=${encodeURIComponent(msg)}`);
+
+closeForm();
 
 }
 
