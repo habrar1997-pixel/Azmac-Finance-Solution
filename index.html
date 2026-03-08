@@ -3,7 +3,6 @@
 <head>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 <title>Azmac Finance Solutions</title>
 
 <style>
@@ -14,8 +13,6 @@ margin:0;
 background:#eef3ff;
 }
 
-/* HEADER */
-
 header{
 background:white;
 padding:15px;
@@ -24,8 +21,6 @@ justify-content:space-between;
 align-items:center;
 box-shadow:0 2px 10px rgba(0,0,0,0.1);
 }
-
-/* BANNER */
 
 .banner{
 background:#1cbf6a;
@@ -43,8 +38,6 @@ border-radius:6px;
 margin-top:10px;
 cursor:pointer;
 }
-
-/* PRODUCTS */
 
 .grid{
 display:grid;
@@ -66,8 +59,6 @@ cursor:pointer;
 width:50px;
 }
 
-/* EMI + ELIGIBILITY */
-
 .tools{
 display:flex;
 justify-content:center;
@@ -82,7 +73,6 @@ border-radius:10px;
 text-align:center;
 width:150px;
 box-shadow:0 2px 10px rgba(0,0,0,0.1);
-cursor:pointer;
 }
 
 .toolbox button{
@@ -93,8 +83,6 @@ color:white;
 padding:8px 15px;
 border-radius:6px;
 }
-
-/* BANKS */
 
 .bankgrid{
 display:grid;
@@ -112,8 +100,6 @@ font-weight:bold;
 box-shadow:0 2px 10px rgba(0,0,0,0.1);
 }
 
-/* ABOUT */
-
 .about{
 background:#e8f2ff;
 padding:30px;
@@ -121,8 +107,6 @@ margin:20px;
 border-radius:10px;
 text-align:center;
 }
-
-/* FAQ */
 
 .faqbtn{
 width:100%;
@@ -133,7 +117,6 @@ margin-top:10px;
 border-radius:8px;
 box-shadow:0 2px 10px rgba(0,0,0,0.1);
 cursor:pointer;
-font-weight:bold;
 }
 
 .faqcontent{
@@ -143,8 +126,6 @@ padding:15px;
 margin-top:5px;
 border-radius:8px;
 }
-
-/* POPUP */
 
 .popup{
 display:none;
@@ -184,11 +165,6 @@ width:28px;
 height:28px;
 }
 
-.page{
-display:none;
-padding:30px;
-}
-
 </style>
 
 </head>
@@ -198,122 +174,39 @@ padding:30px;
 <header>
 
 <div>
-
 <b>Azmac Finance Solutions</b><br>
-
 <small>Fast • Trusted • Easy Loan Services</small>
-
 </div>
 
 <a href="tel:9987037192" style="background:#1cbf6a;color:white;padding:8px 15px;border-radius:6px;text-decoration:none">
-
 📞 Call Now
-
 </a>
 
 </header>
 
-<!-- HOME PAGE -->
-
-<div id="home">
-
 <div class="banner">
 
 <h2>Need Urgent Funds?</h2>
-
 <h3>Personal Loan upto ₹50,00,000</h3>
 
 <p>Fast approval • Low interest • 100% digital process</p>
 
 <button class="applybtn" onclick="openLoan('Personal Loan')">
-
 Apply Now
-
 </button>
 
 </div>
 
-<!-- PRODUCTS -->
-
 <div class="grid">
 
-<div class="card" onclick="openLoan('Personal Loan')">
-
-<img src="https://cdn-icons-png.flaticon.com/512/2331/2331947.png">
-
-<p>Personal Loan</p>
-
-</div>
-
-<div class="card" onclick="openLoan('Business Loan')">
-
-<img src="https://cdn-icons-png.flaticon.com/512/1995/1995525.png">
-
-<p>Business Loan</p>
+<div class="card" onclick="openLoan('Personal Loan')">Personal Loan</div>
+<div class="card" onclick="openLoan('Business Loan')">Business Loan</div>
+<div class="card" onclick="openLoan('Home Loan')">Home Loan</div>
+<div class="card" onclick="openLoan('Health Insurance')">Health Insurance</div>
+<div class="card" onclick="openLoan('Term Insurance')">Term Insurance</div>
+<div class="card" onclick="openLoan('Motor Insurance')">Motor Insurance</div>
 
 </div>
-
-<div class="card" onclick="openLoan('Home Loan')">
-
-<img src="https://cdn-icons-png.flaticon.com/512/609/609803.png">
-
-<p>Home Loan</p>
-
-</div>
-
-<div class="card" onclick="openLoan('Health Insurance')">
-
-<img src="https://cdn-icons-png.flaticon.com/512/2966/2966485.png">
-
-<p>Health Insurance</p>
-
-</div>
-
-<div class="card" onclick="openLoan('Term Insurance')">
-
-<img src="https://cdn-icons-png.flaticon.com/512/2721/2721274.png">
-
-<p>Term Insurance</p>
-
-</div>
-
-<div class="card" onclick="openLoan('Motor Insurance')">
-
-<img src="https://cdn-icons-png.flaticon.com/512/744/744465.png">
-
-<p>Motor Insurance</p>
-
-</div>
-
-</div>
-
-<!-- TOOLS -->
-
-<div class="tools">
-
-<div class="toolbox">
-
-💰 EMI Calculator
-
-<br>
-
-<button onclick="openPage('emi')">Open</button>
-
-</div>
-
-<div class="toolbox">
-
-📊 Loan Eligibility
-
-<br>
-
-<button onclick="openPage('eligibility')">Check</button>
-
-</div>
-
-</div>
-
-<!-- BANKS -->
 
 <h3 style="text-align:center">Our Partner Banks & NBFC</h3>
 
@@ -325,151 +218,25 @@ Apply Now
 <div class="bank">Bajaj Finserv</div>
 <div class="bank">Tata Capital</div>
 <div class="bank">Aditya Birla Finance</div>
-<div class="bank">Kotak Mahindra Bank</div>
-<div class="bank">IDFC First Bank</div>
 
 </div>
-
-<!-- ABOUT -->
 
 <div class="about">
 
 <h2>About Azmac Finance Solutions</h2>
 
 <p>
-
-Azmac Finance Solutions is a trusted financial service platform helping individuals and businesses get quick access to loans and insurance products. We work with top banks and NBFCs to provide fast approvals, competitive interest rates and simple digital loan processes.
-
+Azmac Finance Solutions helps individuals and businesses get quick access to loans and insurance products from top banks and NBFCs with fast approvals and competitive interest rates.
 </p>
 
 </div>
-
-<!-- WHY CHOOSE -->
-
-<h2 style="text-align:center">Why Choose Azmac Finance Solutions?</h2>
-
-<div style="padding:20px">
-
-<button onclick="toggleWhy()" class="faqbtn">
-
-Why Choose Azmac Finance Solutions ▼
-
-</button>
-
-<div id="whybox" class="faqcontent">
-
-<ul>
-
-<li>✔ Fast loan approvals</li>
-
-<li>✔ Multiple banks & NBFC options</li>
-
-<li>✔ Competitive interest rates</li>
-
-<li>✔ Minimum documentation</li>
-
-<li>✔ Expert loan assistance</li>
-
-<li>✔ Digital loan process</li>
-
-</ul>
-
-</div>
-
-</div>
-
-<!-- FAQ -->
-
-<h2 style="text-align:center">FAQs</h2>
-
-<div style="padding:20px">
-
-<button onclick="faq1()" class="faqbtn">
-
-What documents are required for a personal loan?
-
-</button>
-
-<div id="faq1box" class="faqcontent">
-
-PAN card, Aadhaar card, income proof and bank statement.
-
-</div>
-
-<button onclick="faq2()" class="faqbtn">
-
-How much loan can I get?
-
-</button>
-
-<div id="faq2box" class="faqcontent">
-
-Loan amount depends on your income and credit score.
-
-</div>
-
-<button onclick="faq3()" class="faqbtn">
-
-How long does approval take?
-
-</button>
-
-<div id="faq3box" class="faqcontent">
-
-Most loans are approved within 24-48 hours.
-
-</div>
-
-</div>
-
-</div>
-
-<!-- EMI PAGE -->
-
-<div id="emi" class="page">
-
-<h2>EMI Calculator</h2>
-
-<input id="loan" placeholder="Loan Amount">
-
-<input id="rate" placeholder="Interest Rate">
-
-<input id="years" placeholder="Loan Years">
-
-<button onclick="emiCalc()">Calculate EMI</button>
-
-<p id="emiResult"></p>
-
-<button onclick="openPage('home')">Back</button>
-
-</div>
-
-<!-- ELIGIBILITY PAGE -->
-
-<div id="eligibility" class="page">
-
-<h2>Loan Eligibility</h2>
-
-<input id="salary" placeholder="Monthly Salary">
-
-<button onclick="checkEligibility()">Check</button>
-
-<p id="eligible"></p>
-
-<button onclick="openPage('home')">Back</button>
-
-</div>
-
-<!-- LEAD FORM -->
 
 <div class="popup" id="loanForm">
 
 <div class="formbox">
 
 <div style="text-align:right">
-
 <button class="close" onclick="closeForm()">✕</button>
-
 </div>
 
 <h3 id="loanTitle"></h3>
@@ -479,16 +246,15 @@ Most loans are approved within 24-48 hours.
 <input id="mobile" placeholder="Mobile Number">
 
 <select id="job">
-
 <option>Salaried</option>
-
 <option>Self Employed</option>
-
 </select>
 
 <input id="income" placeholder="Monthly Income">
 
-<input id="emiCurrent" placeholder="Current EMI">
+<input id="emi" placeholder="Current EMI">
+
+<input id="pan" placeholder="PAN Number">
 
 <button onclick="submitLoan()">Submit</button>
 
@@ -516,110 +282,45 @@ document.getElementById("loanForm").style.display="none";
 
 }
 
-function openPage(page){
-
-document.getElementById("home").style.display="none";
-
-document.getElementById("emi").style.display="none";
-
-document.getElementById("eligibility").style.display="none";
-
-document.getElementById(page).style.display="block";
-
-}
-
-/* EMI */
-
-function emiCalc(){
-
-let P=document.getElementById("loan").value;
-
-let R=document.getElementById("rate").value/1200;
-
-let N=document.getElementById("years").value*12;
-
-let EMI=P*R*Math.pow(1+R,N)/(Math.pow(1+R,N)-1);
-
-document.getElementById("emiResult").innerText="Monthly EMI ₹ "+Math.round(EMI);
-
-}
-
-/* ELIGIBILITY */
-
-function checkEligibility(){
-
-let salary=document.getElementById("salary").value;
-
-let eligible=salary*20;
-
-document.getElementById("eligible").innerText="You may get loan upto ₹ "+eligible;
-
-}
-
-/* FAQ */
-
-function toggleWhy(){
-
-toggle("whybox");
-
-}
-
-function faq1(){
-
-toggle("faq1box");
-
-}
-
-function faq2(){
-
-toggle("faq2box");
-
-}
-
-function faq3(){
-
-toggle("faq3box");
-
-}
-
-function toggle(id){
-
-let box=document.getElementById(id);
-
-box.style.display=box.style.display=="block"?"none":"block";
-
-}
-
-/* LEAD */
-
 function submitLoan(){
 
 let name=document.getElementById("name").value;
-
 let mobile=document.getElementById("mobile").value;
-
 let job=document.getElementById("job").value;
-
 let income=document.getElementById("income").value;
+let emi=document.getElementById("emi").value;
+let pan=document.getElementById("pan").value;
 
-let emi=document.getElementById("emiCurrent").value;
+fetch("PASTE_GOOGLE_SCRIPT_URL_HERE",{
 
-let msg=`New Lead
-Product:${product}
-Name:${name}
-Mobile:${mobile}
-Job:${job}
-Income:${income}
-Current EMI:${emi}`;
+method:"POST",
 
-window.open(`https://wa.me/919987037192?text=${encodeURIComponent(msg)}`);
+body:JSON.stringify({
+
+name:name,
+mobile:mobile,
+loan:product,
+job:job,
+income:income,
+emi:emi,
+pan:pan
+
+})
+
+})
+
+.then(res=>res.text())
+.then(data=>{
+
+alert("Thank you! Our loan expert will contact you shortly.");
 
 closeForm();
+
+});
 
 }
 
 </script>
 
 </body>
-
-  </html>
+</html>
