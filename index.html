@@ -3,7 +3,6 @@
 <head>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 <title>Azmac Finance Solutions</title>
 
 <style>
@@ -13,6 +12,8 @@ font-family:Arial;
 margin:0;
 background:#eef3ff;
 }
+
+/* HEADER */
 
 header{
 background:white;
@@ -40,6 +41,8 @@ margin-top:10px;
 cursor:pointer;
 }
 
+/* PRODUCTS */
+
 .grid{
 display:grid;
 grid-template-columns:repeat(3,1fr);
@@ -60,19 +63,35 @@ cursor:pointer;
 width:50px;
 }
 
-.section{
-text-align:center;
-padding:40px 20px;
+/* EMI + ELIGIBILITY */
+
+.tools{
+display:flex;
+justify-content:center;
+gap:30px;
+padding:20px;
 }
 
-.calcbtn{
-background:#1cbf6a;
-color:white;
-padding:10px 20px;
-border:none;
-border-radius:6px;
-margin-top:10px;
+.toolbox{
+background:white;
+padding:20px;
+border-radius:10px;
+text-align:center;
+width:150px;
+box-shadow:0 2px 10px rgba(0,0,0,0.1);
+cursor:pointer;
 }
+
+.toolbox button{
+margin-top:10px;
+background:#1cbf6a;
+border:none;
+color:white;
+padding:8px 15px;
+border-radius:6px;
+}
+
+/* BANKS */
 
 .bankgrid{
 display:grid;
@@ -89,6 +108,8 @@ color:green;
 font-weight:bold;
 box-shadow:0 2px 10px rgba(0,0,0,0.1);
 }
+
+/* POPUP */
 
 .popup{
 display:none;
@@ -119,10 +140,6 @@ border:1px solid #ccc;
 border-radius:6px;
 }
 
-button{
-cursor:pointer;
-}
-
 .close{
 background:red;
 color:white;
@@ -132,13 +149,11 @@ width:28px;
 height:28px;
 }
 
-.calcbox{
+/* PAGES */
+
+.page{
 display:none;
-background:white;
-padding:20px;
-margin:20px;
-border-radius:10px;
-box-shadow:0 2px 10px rgba(0,0,0,0.1);
+padding:30px;
 }
 
 </style>
@@ -152,32 +167,28 @@ box-shadow:0 2px 10px rgba(0,0,0,0.1);
 <div>
 
 <b>Azmac Finance Solutions</b><br>
-
 <small>Fast • Trusted • Easy Loan Services</small>
 
 </div>
 
 <a href="tel:9987037192" style="background:#1cbf6a;color:white;padding:8px 15px;border-radius:6px;text-decoration:none">
-
 📞 Call Now
-
 </a>
 
 </header>
 
+<!-- HOME PAGE -->
+
+<div id="home">
+
 <div class="banner">
 
 <h2>Need Urgent Funds?</h2>
-
 <h3>Personal Loan upto ₹50,00,000</h3>
 
 <p>Fast approval • Low interest • 100% digital process</p>
 
-<button class="applybtn" onclick="openLoan('Personal Loan')">
-
-Apply Now
-
-</button>
+<button class="applybtn" onclick="openLoan('Personal Loan')">Apply Now</button>
 
 </div>
 
@@ -210,72 +221,42 @@ Apply Now
 <p>Term Insurance</p>
 </div>
 
-<div class="card" onclick="openMotor()">
+<div class="card" onclick="openLoan('Motor Insurance')">
 <img src="https://cdn-icons-png.flaticon.com/512/744/744465.png">
 <p>Motor Insurance</p>
 </div>
 
 </div>
 
-<!-- EMI BUTTON -->
+<!-- EMI + ELIGIBILITY -->
 
-<div class="section">
+<div class="tools">
 
-<h2>💰 EMI Calculator</h2>
+<div class="toolbox">
 
-<button class="calcbtn" onclick="showEmi()">Calculate EMI</button>
-
-</div>
-
-<div id="emiBox" class="calcbox">
-
-<h3>EMI Calculator</h3>
-
-<input id="loan" placeholder="Loan Amount">
-
-<input id="rate" placeholder="Interest Rate">
-
-<input id="years" placeholder="Loan Years">
+💰 EMI Calculator
 
 <br>
 
-<button onclick="emiCalc()">Calculate</button>
-
-<p id="emiResult"></p>
+<button onclick="openPage('emi')">Open</button>
 
 </div>
 
-<!-- ELIGIBILITY -->
+<div class="toolbox">
 
-<div class="section">
-
-<h2>📊 Loan Eligibility</h2>
-
-<button class="calcbtn" onclick="showEligibility()">Check Eligibility</button>
-
-</div>
-
-<div id="eligibilityBox" class="calcbox">
-
-<h3>Eligibility Checker</h3>
-
-<input id="salary" placeholder="Monthly Salary">
+📊 Loan Eligibility
 
 <br>
 
-<button onclick="checkEligibility()">Check</button>
+<button onclick="openPage('eligibility')">Check</button>
 
-<p id="eligible"></p>
+</div>
 
 </div>
 
 <!-- BANKS -->
 
-<div class="section">
-
-<h2>Our Partner Banks & NBFC</h2>
-
-</div>
+<h3 style="text-align:center">Our Partner Banks & NBFC</h3>
 
 <div class="bankgrid">
 
@@ -290,33 +271,65 @@ Apply Now
 
 </div>
 
-<!-- LOAN FORM -->
+</div>
+
+<!-- EMI PAGE -->
+
+<div id="emi" class="page">
+
+<h2>EMI Calculator</h2>
+
+<input id="loan" placeholder="Loan Amount">
+<input id="rate" placeholder="Interest Rate">
+<input id="years" placeholder="Loan Years">
+
+<button onclick="emiCalc()">Calculate EMI</button>
+
+<p id="emiResult"></p>
+
+<button onclick="openPage('home')">⬅ Back</button>
+
+</div>
+
+<!-- ELIGIBILITY PAGE -->
+
+<div id="eligibility" class="page">
+
+<h2>Loan Eligibility Checker</h2>
+
+<input id="salary" placeholder="Monthly Salary">
+
+<button onclick="checkEligibility()">Check Eligibility</button>
+
+<p id="eligible"></p>
+
+<button onclick="openPage('home')">⬅ Back</button>
+
+</div>
+
+<!-- LEAD FORM -->
 
 <div class="popup" id="loanForm">
 
 <div class="formbox">
 
 <div style="text-align:right">
-
 <button class="close" onclick="closeForm()">✕</button>
-
 </div>
 
 <h3 id="loanTitle"></h3>
 
 <input id="name" placeholder="Full Name">
-
 <input id="mobile" placeholder="Mobile Number">
 
 <select id="job">
-
 <option>Salaried</option>
-
 <option>Self Employed</option>
-
 </select>
 
 <input id="income" placeholder="Monthly Income">
+
+<input id="emiCurrent" placeholder="Current EMI">
 
 <button onclick="submitLoan()">Submit</button>
 
@@ -329,58 +342,28 @@ Apply Now
 let product="";
 
 function openLoan(type){
-
 product=type;
-
 document.getElementById("loanTitle").innerText=type;
-
 document.getElementById("loanForm").style.display="flex";
-
-}
-
-function openMotor(){
-
-openLoan("Motor Insurance");
-
 }
 
 function closeForm(){
-
 document.getElementById("loanForm").style.display="none";
+}
+
+/* PAGE NAVIGATION */
+
+function openPage(page){
+
+document.getElementById("home").style.display="none";
+document.getElementById("emi").style.display="none";
+document.getElementById("eligibility").style.display="none";
+
+document.getElementById(page).style.display="block";
 
 }
 
-function submitLoan(){
-
-let name=document.getElementById("name").value;
-let mobile=document.getElementById("mobile").value;
-let job=document.getElementById("job").value;
-let income=document.getElementById("income").value;
-
-let msg=`New Lead
-Product:${product}
-Name:${name}
-Mobile:${mobile}
-Job:${job}
-Income:${income}`;
-
-window.open(`https://wa.me/919987037192?text=${encodeURIComponent(msg)}`);
-
-closeForm();
-
-}
-
-function showEmi(){
-
-document.getElementById("emiBox").style.display="block";
-
-}
-
-function showEligibility(){
-
-document.getElementById("eligibilityBox").style.display="block";
-
-}
+/* EMI */
 
 function emiCalc(){
 
@@ -394,6 +377,8 @@ document.getElementById("emiResult").innerText="Monthly EMI ₹ "+Math.round(EMI
 
 }
 
+/* ELIGIBILITY */
+
 function checkEligibility(){
 
 let salary=document.getElementById("salary").value;
@@ -404,8 +389,31 @@ document.getElementById("eligible").innerText="You may get loan upto ₹ "+eligi
 
 }
 
+/* WHATSAPP LEAD */
+
+function submitLoan(){
+
+let name=document.getElementById("name").value;
+let mobile=document.getElementById("mobile").value;
+let job=document.getElementById("job").value;
+let income=document.getElementById("income").value;
+let emi=document.getElementById("emiCurrent").value;
+
+let msg=`New Lead
+Product:${product}
+Name:${name}
+Mobile:${mobile}
+Job:${job}
+Income:${income}
+Current EMI:${emi}`;
+
+window.open(`https://wa.me/919987037192?text=${encodeURIComponent(msg)}`);
+
+closeForm();
+
+}
+
 </script>
 
 </body>
-
-  </html>
+</html>
