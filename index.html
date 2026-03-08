@@ -243,6 +243,7 @@ margin-top:40px;
 <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Axis_Bank_logo.svg">
 <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Kotak_Mahindra_Bank_logo.svg">
 <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Bajaj_Finserv_Logo.svg">
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Aditya_Birla_Capital_logo.svg">
 
 </div>
 
@@ -353,6 +354,7 @@ Azmac Finance Solutions helps individuals and businesses get quick access to loa
 <h2>Loan Eligibility</h2>
 
 <input id="salary" placeholder="Monthly Salary">
+<input id="currentEmi" placeholder="Current EMI">
 
 <button class="btn" onclick="checkEligibility()">Check</button>
 
@@ -418,10 +420,13 @@ document.getElementById("emiResult").innerText="Monthly EMI ₹ "+Math.round(emi
 function checkEligibility(){
 
 let salary=document.getElementById("salary").value
+let emi=document.getElementById("currentEmi").value
 
-let loan=salary*40
+let eligibleEmi=(salary*0.5)-emi
 
-document.getElementById("eligibilityResult").innerText="Estimated Loan ₹ "+loan
+let loan=eligibleEmi*60
+
+document.getElementById("eligibilityResult").innerText="Estimated Loan Eligibility ₹ "+Math.round(loan)
 
 }
 
