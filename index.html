@@ -66,13 +66,14 @@ color:#1cbf6a;
 margin-bottom:10px;
 }
 
-/* BANK LOGO */
+/* BANK LOGOS */
 
 .slider{
-overflow:hidden;
+overflow:auto;
 white-space:nowrap;
 background:white;
 padding:20px;
+text-align:center;
 }
 
 .slider img{
@@ -113,7 +114,7 @@ border-radius:6px;
 margin-top:10px;
 }
 
-/* LEAD POPUP */
+/* LEAD FORM */
 
 .popup{
 display:none;
@@ -151,6 +152,7 @@ border:none;
 border-radius:50%;
 width:28px;
 height:28px;
+cursor:pointer;
 }
 
 .submitbtn{
@@ -159,6 +161,7 @@ color:white;
 border:none;
 padding:10px;
 border-radius:6px;
+cursor:pointer;
 }
 
 </style>
@@ -196,12 +199,35 @@ border-radius:6px;
 
 <div class="grid">
 
-<div class="card"><i class="fa-solid fa-hand-holding-dollar"></i><p>Personal Loan</p></div>
-<div class="card"><i class="fa-solid fa-briefcase"></i><p>Business Loan</p></div>
-<div class="card"><i class="fa-solid fa-house"></i><p>Home Loan</p></div>
-<div class="card"><i class="fa-solid fa-heart-pulse"></i><p>Health Insurance</p></div>
-<div class="card"><i class="fa-solid fa-shield-halved"></i><p>Term Insurance</p></div>
-<div class="card"><i class="fa-solid fa-car"></i><p>Motor Insurance</p></div>
+<div class="card" onclick="openForm()">
+<i class="fa-solid fa-hand-holding-dollar"></i>
+<p>Personal Loan</p>
+</div>
+
+<div class="card" onclick="openForm()">
+<i class="fa-solid fa-briefcase"></i>
+<p>Business Loan</p>
+</div>
+
+<div class="card" onclick="openForm()">
+<i class="fa-solid fa-house"></i>
+<p>Home Loan</p>
+</div>
+
+<div class="card" onclick="openForm()">
+<i class="fa-solid fa-heart-pulse"></i>
+<p>Health Insurance</p>
+</div>
+
+<div class="card" onclick="openForm()">
+<i class="fa-solid fa-shield-halved"></i>
+<p>Term Insurance</p>
+</div>
+
+<div class="card" onclick="openForm()">
+<i class="fa-solid fa-car"></i>
+<p>Motor Insurance</p>
+</div>
 
 </div>
 
@@ -212,8 +238,14 @@ border-radius:6px;
 <div class="slider">
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/2/28/HDFC_Bank_Logo.svg">
+
 <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/ICICI_Bank_Logo.svg">
+
 <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Axis_Bank_logo.svg">
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Kotak_Mahindra_Bank_logo.svg">
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Bajaj_Finserv_Logo.svg">
 
 </div>
 
